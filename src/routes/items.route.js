@@ -3,19 +3,34 @@ const router = express.Router();
 // In memory Storage
 const items = [
     {
-        id: '1',
-        name: 'buy bananas',
-        description: 'buy some bananas at tesco'
+        id: 1,
+        name: 'Test 1',
+        description: 'Test description 1'
     },
     {
-        id: '2',
-        name: 'buy chocolate',
-        description: 'buy some chocolate with 85%'
+        id: 2,
+        name: 'Test 2',
+        description: 'Test description 2'
     },
     {
-        id: '3',
-        name: 'buy apples',
-        description: 'buy some apples at tesco'
+        id: 3,
+        name: 'Test 3',
+        description: 'Test description 3'
+    },
+    {
+        id: 4,
+        name: 'Test 4',
+        description: 'Test description 4'
+    },
+    {
+        id: 5,
+        name: 'Test 5',
+        description: 'Test description 5'
+    },
+    {
+        id: 6,
+        name: 'Test 6',
+        description: 'Test description 6'
     }
 ];
 
