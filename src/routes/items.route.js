@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 // In memory Storage
-const items = [
+var items = [
     {
         id: 1,
         name: 'Test 1',
@@ -47,6 +47,16 @@ router.get('/:id/', function(req, res) {
     }
 });
 
+router.put('/', function(req, res) {
+    const item = req.body;
+    if (item) {
+        items.push(item);
+        res.status(201).send();
+    } else {
+        res.status(400).send({ error: "Invalid request"});
+    }
+});
+
 router.post('/', function(req, res) {
     const item = req.body;
     if (item) {
@@ -57,10 +67,15 @@ router.post('/', function(req, res) {
     }
 });
 
-// START ADD v2 Methods
-
-// END ADD v2 Methods
-
+router.delete('/:id/', function(req, res) {
+    const item = items.find(item => item.id == id);
+    if (item) {
+        items.splice(items.indexOf(item),1);
+        res.status(204).send();
+    } else {
+        res.status(404).send({ error: "Item not found"});
+    }
+});
 
 module.exports = {
     router
