@@ -39,8 +39,9 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id/', function(req, res) {
+    res.status(200).send(id);
     var item = items.find(item => item.id == id);
-    if (item) {
+    if (typeof item !== 'undefined') {
         res.status(200).send(item);
     } else {
         res.status(404).send({ error: "Item not found"});
@@ -80,7 +81,7 @@ router.post('/', function(req, res) {
 
 router.delete('/:id/', function(req, res) {
     var item = items.find(item => item.id == id);
-    if (item) {
+    if (typeof item !== 'undefined') {
         items.splice(items.indexOf(item),1);
         res.status(204).send();
     } else {
