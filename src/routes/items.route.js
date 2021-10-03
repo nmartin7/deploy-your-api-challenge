@@ -38,7 +38,7 @@ router.get('/', function(req, res) {
   res.status(200).send(items);
 });
 
-router.get('/:id/', function(req, res) {
+router.get('/{id}/', function(req, res) {
     var item = items.find(item => item.id == id);
     if (typeof item !== 'undefined') {
         res.status(200).send(item);
@@ -78,7 +78,7 @@ router.post('/', function(req, res) {
     }
 });
 
-router.delete('/:id/', function(req, res) {
+router.delete('/{id}/', function(req, res) {
     var item = items.find(item => item.id == id);
     if (typeof item !== 'undefined') {
         items.splice(items.indexOf(item),1);
