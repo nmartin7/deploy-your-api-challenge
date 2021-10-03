@@ -5,7 +5,40 @@ info:
   version: 1.0.0
   description: Challenge 5 app description
 paths:
-  /items:
+  /items/:id/:
+    get:
+      parameters:
+      - name: id
+        description: ""
+        schema:
+          type: integer
+        in: query
+        required: false
+      - name: name
+        description: ""
+        schema:
+          type: string
+        in: query
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/item'
+              examples:
+                item:
+                  value:
+                    id: 1
+                    name: Test
+                    description: Test description
+          description: ""
+      operationId: getItem
+    delete:
+      responses:
+        "204":
+          description: ""
+      operationId: deleteItem
+  /items/:
     get:
       responses:
         "200":
@@ -29,34 +62,6 @@ paths:
                     description: Test description 3
           description: ""
       operationId: listItems
-  /item:
-    get:
-      parameters:
-      - name: id
-        description: ""
-        schema:
-          type: integer
-        in: query
-        required: false
-      - name: name
-        description: ""
-        schema:
-          type: string
-        in: query
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: string
-              examples:
-                item:
-                  value:
-                    id: 1
-                    name: Test
-                    description: Test description
-          description: ""
-      operationId: getItem
     put:
       requestBody:
         content:
@@ -64,7 +69,7 @@ paths:
             schema:
               $ref: '#/components/schemas/item'
             examples:
-              updateItem:
+              updated:
                 value:
                   id: 1
                   name: Test
@@ -91,11 +96,6 @@ paths:
         "201":
           description: ""
       operationId: postItem
-    delete:
-      responses:
-        "204":
-          description: ""
-      operationId: deleteItem
 components:
   schemas:
     item:
