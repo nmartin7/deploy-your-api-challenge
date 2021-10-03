@@ -38,6 +38,15 @@ router.get('/', function(req, res) {
   res.status(200).send(items);
 });
 
+router.get('/:id/', function(req, res) {
+    const item = items.find(item => item.id == id);
+    if (item) {
+        res.status(200).send(item);
+    } else {
+        res.status(404).send({ error: "Item not found"});
+    }
+});
+
 router.post('/', function(req, res) {
     const item = req.body;
     if (item) {
