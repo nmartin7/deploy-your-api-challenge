@@ -7,18 +7,6 @@ info:
 paths:
   /items/:id/:
     get:
-      parameters:
-      - name: id
-        description: ""
-        schema:
-          type: integer
-        in: query
-        required: false
-      - name: name
-        description: ""
-        schema:
-          type: string
-        in: query
       responses:
         "200":
           content:
