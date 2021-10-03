@@ -68,10 +68,10 @@ router.post('/', function(req, res) {
     if (itemReq) {
         var item = items.find(item => item.id == itemReq.id);
         if (item) {
-           res.status(40).send({ error: "Item found. Cannot post an item with an existing id."});
+           res.status(400).send({ error: "Item found. Cannot post an item with an existing id."});
         } else {
            items.push(itemReq);
-           res.status(200).send();
+           res.status(201).send();
         }
     } else {
         res.status(400).send({ error: "Invalid request"});
