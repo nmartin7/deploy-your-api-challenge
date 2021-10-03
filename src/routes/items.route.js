@@ -39,7 +39,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id/', function(req, res) {
-    const item = items.find(item => item.id == id);
+    var item = items.find(item => item.id == id);
     if (item) {
         res.status(200).send(item);
     } else {
@@ -48,27 +48,38 @@ router.get('/:id/', function(req, res) {
 });
 
 router.put('/', function(req, res) {
-    const item = req.body;
-    if (item) {
-        items.push(item);
-        res.status(201).send();
+    var itemReq = req.body;
+    if (itemReq) {
+        var item = items.find(item => item.id == itemReq.id);
+        if (item) {
+           items.splice(items.indexOf(item),1);
+           items.push(itemReq);
+           res.status(200).send();
+        } else {
+            res.status(404).send({ error: "Item not found"});
+        }
     } else {
         res.status(400).send({ error: "Invalid request"});
     }
 });
 
 router.post('/', function(req, res) {
-    const item = req.body;
-    if (item) {
-        items.push(item);
-        res.status(201).send();
+    var itemReq = req.body;
+    if (itemReq) {
+        var item = items.find(item => item.id == itemReq.id);
+        if (item) {
+           res.status(40).send({ error: "Item found. Cannot post an item with an existing id."});
+        } else {
+           items.push(itemReq);
+           res.status(200).send();
+        }
     } else {
         res.status(400).send({ error: "Invalid request"});
     }
 });
 
 router.delete('/:id/', function(req, res) {
-    const item = items.find(item => item.id == id);
+    var item = items.find(item => item.id == id);
     if (item) {
         items.splice(items.indexOf(item),1);
         res.status(204).send();
