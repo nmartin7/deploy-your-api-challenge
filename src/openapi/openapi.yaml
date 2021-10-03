@@ -1,9 +1,9 @@
 ---
 openapi: 3.0.2
 info:
-  title: Todo List
+  title: challenge5-app
   version: 1.0.0
-  description: Todo List Spec
+  description: Challenge 5 app description
 paths:
   /items:
     get:
@@ -14,57 +14,113 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Item'
+                  $ref: '#/components/schemas/item'
               examples:
                 items:
                   value:
-                  - id: "123123"
-                    name: Buy Bananas
-                    description: Buy Bananas
-                  - id: "345345"
-                    name: Buy Chocolate
-                    description: 85% chocolate
-          description: valid Response
-      operationId: getItems
+                  - id: 1
+                    name: Test
+                    description: Test description
+                  - id: 2
+                    name: Test 2
+                    description: Test description 2
+                  - id: 3
+                    name: Test 3
+                    description: Test description 3
+          description: ""
+      operationId: listItems
+  /item:
+    get:
+      parameters:
+      - name: id
+        description: ""
+        schema:
+          type: integer
+        in: query
+        required: false
+      - name: name
+        description: ""
+        schema:
+          type: string
+        in: query
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+              examples:
+                item:
+                  value:
+                    id: 1
+                    name: Test
+                    description: Test description
+          description: ""
+      operationId: getItem
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/item'
+            examples:
+              updateItem:
+                value:
+                  id: 1
+                  name: Test
+                  description: Test description
+        required: true
+      responses:
+        "200":
+          description: ""
+      operationId: updateItem
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Item'
+              $ref: '#/components/schemas/item'
             examples:
-              item:
+              postItem:
                 value:
-                  id: "123123"
-                  name: Buy Bananas
-                  description: Buy Bananas
+                  id: 1
+                  name: Test
+                  description: Test description
         required: true
       responses:
         "201":
-          description: Created description
-      operationId: createItem
+          description: ""
+      operationId: postItem
+    delete:
+      responses:
+        "204":
+          description: ""
+      operationId: deleteItem
 components:
   schemas:
-    Item:
-      title: Root Type for Item
-      description: Item type
+    item:
+      title: Root Type for Items
+      description: ""
+      required:
+      - id
+      - name
       type: object
       properties:
         id:
-          type: string
+          type: number
         name:
           type: string
         description:
           type: string
       example:
-        id: "3423432432"
-        name: Bananas
-        description: Buy bananas at Carrefour
+        id: 1
+        name: Test
+        description: Test description
   securitySchemes:
     api-key:
       type: apiKey
-      description: Use a 3scale API Key
-      name: api-key
+      description: api key for 3scale
+      name: app-key
       in: header
 security:
     -
