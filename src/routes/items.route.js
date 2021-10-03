@@ -68,7 +68,7 @@ router.post('/', function(req, res) {
     if ((itemReq !== {}) && (typeof itemReq !== 'undefined')) {
         var item = items.find(item => item.id == itemReq.id);
         if (item) {
-           res.status(400).send({ error: "Item found. Cannot post an item with an existing id."});
+           res.status(400).send({ error: "Item found: Cannot post an item with an existing id"});
         } else {
            items.push(itemReq);
            res.status(201).send();
