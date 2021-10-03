@@ -38,8 +38,8 @@ router.get('/', function(req, res) {
   res.status(200).send(items);
 });
 
-router.get('/{id}/', function(req, res) {
-    var item = items.find(item => item.id == id);
+router.get('/:id/', function(req, res) {
+    var item = items.find(item => item.id == req.params.id);
     if (typeof item !== 'undefined') {
         res.status(200).send(item);
     } else {
@@ -49,7 +49,7 @@ router.get('/{id}/', function(req, res) {
 
 router.put('/', function(req, res) {
     var itemReq = req.body;
-    if (itemReq) {
+    if ((itemReq !== {}) && (typeof itemReq !== 'undefined')) {
         var item = items.find(item => item.id == itemReq.id);
         if (item) {
            items.splice(items.indexOf(item),1);
@@ -65,7 +65,7 @@ router.put('/', function(req, res) {
 
 router.post('/', function(req, res) {
     var itemReq = req.body;
-    if (itemReq) {
+    if ((itemReq !== {}) && (typeof itemReq !== 'undefined')) {
         var item = items.find(item => item.id == itemReq.id);
         if (item) {
            res.status(400).send({ error: "Item found. Cannot post an item with an existing id."});
@@ -78,8 +78,8 @@ router.post('/', function(req, res) {
     }
 });
 
-router.delete('/{id}/', function(req, res) {
-    var item = items.find(item => item.id == id);
+router.delete('/:id/', function(req, res) {
+    var item = items.find(item => item.id == req.params.companyName);
     if (typeof item !== 'undefined') {
         items.splice(items.indexOf(item),1);
         res.status(204).send();
