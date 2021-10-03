@@ -1,7 +1,7 @@
 {
-  "name": "todo-app",
+  "name": "challenge5-app",
   "version": "1.0.0",
-  "description": "todo app",
+  "description": "challenge5 app",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/misanche/3scaleworkshop-greeting-app.git"
+    "url": "git+https://github.com/minerva-devgames/deploy-your-api-challenge.git"
   },
   "keywords": [
     "greeting",
     "nodejs"
   ],
-  "author": "Mikel Sanchez",
+  "author": "Minerva",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/misanche/3scaleworkshop-greeting-app/issues"
+    "url": "https://github.com/minerva-devgames/deploy-your-api-challenge/issues"
   },
-  "homepage": "https://github.com/misanche/3scaleworkshop-greeting-app#readme",
+  "homepage": "https://github.com/minerva-devgames/deploy-your-api-challenge#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
