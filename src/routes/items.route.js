@@ -39,7 +39,6 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id/', function(req, res) {
-    res.status(200).send(id);
     var item = items.find(item => item.id == id);
     if (typeof item !== 'undefined') {
         res.status(200).send(item);
