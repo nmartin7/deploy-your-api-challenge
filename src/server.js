@@ -6,7 +6,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use("/items", routes.router);
-app.use("/item", routes.router);
 
 const port  = process.env.NODEJS_PORT || 8080
 
