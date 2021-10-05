@@ -2,7 +2,7 @@
 openapi: 3.0.2
 info:
   title: challenge5-app
-  version: 1.0.0
+  version: 1.1.0
   description: Challenge 5 app description
 paths:
   /items:
