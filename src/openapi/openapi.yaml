@@ -65,6 +65,12 @@ paths:
       operationId: postItem
   /items/{id}:
     get:
+      parameters:
+      - name: id
+        schema:
+          type: integer
+        in: path
+        required: true
       responses:
         "200":
           content:
@@ -80,12 +86,20 @@ paths:
           description: ""
       operationId: getItem
     delete:
+      parameters:
+      - name: id
+        schema:
+          type: integer
+        in: path
+        required: true
       responses:
         "204":
           description: ""
       operationId: deleteItem
     parameters:
     - name: id
+      schema:
+        type: integer
       in: path
       required: true
 components:
