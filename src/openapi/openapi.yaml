@@ -99,6 +99,7 @@ components:
       type: object
       properties:
         id:
+          format: int32
           type: integer
         name:
           type: string
