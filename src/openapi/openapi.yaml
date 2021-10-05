@@ -114,3 +114,6 @@ components:
       description: api key for 3scale
       name: app-key
       in: header
+security:
+    -
+        api-key: []
