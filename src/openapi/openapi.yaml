@@ -93,20 +93,17 @@ components:
     item:
       title: Root Type for Items
       description: ""
+      required:
+      - id
+      - name
       type: object
-      allOf:
-      - required:
-        - id
-        - name
-        type: object
-        properties:
-          id:
-            type: integer
-          name:
-            type: string
-          description:
-            type: string
-      - $ref: '#/components/schemas/item'
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
       example:
         id: 1
         name: Test
