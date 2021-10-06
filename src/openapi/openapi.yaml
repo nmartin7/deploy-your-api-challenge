@@ -116,4 +116,5 @@ components:
             description: openid
 security:
     - openId: 
-      - admin
+      - openid
+      - microprofile-jwt
