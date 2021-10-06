@@ -118,7 +118,7 @@ components:
             flows:
                 authorizationCode:
                     authorizationUrl: >-
-                        http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/protocol/openid-connect/auth",
+                        http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/protocol/openid-connect/auth
                     tokenUrl: >-
                         http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/protocol/openid-connect/token
                     scopes:
@@ -126,8 +126,6 @@ components:
             type: oauth2
             description: oauth
 security:
-    -
-        openId: []
     -
         oauth:
             - openid
