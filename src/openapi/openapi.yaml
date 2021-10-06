@@ -132,5 +132,4 @@ components:
       type: openIdConnect
       description: openid connect for 3scale
 security:
-    - openid:
-      - openid
+    - openid []
