@@ -24,6 +24,8 @@ paths:
                     name: Test 2
                     description: Test description 2
           description: Valid description
+      security:
+      - openId: []
       operationId: getAllItems
     put:
       requestBody:
@@ -71,6 +73,8 @@ paths:
                     id: 1
                     name: Test 1
                     description: Test description 1
+      security:
+      - openId: []
       operationId: getItem
     delete:
       responses:
@@ -107,6 +111,6 @@ components:
         description: Test description 1
   securitySchemes:
     openId:
-      openIdConnectUrl: http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user5/.well-known/openid-configuration
+      openIdConnectUrl: http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/.well-known/openid-configuration
       type: openIdConnect
       description: openid
