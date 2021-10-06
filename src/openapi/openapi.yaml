@@ -28,6 +28,8 @@ paths:
                     name: Test 3
                     description: Test description 3
           description: ""
+      security:
+      - openid: []
       operationId: listItems
     put:
       requestBody:
