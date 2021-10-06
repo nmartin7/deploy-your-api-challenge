@@ -108,24 +108,3 @@ components:
                 id: 1
                 name: Test 1
                 description: Test description 1
-    securitySchemes:
-        openId:
-            openIdConnectUrl: >-
-                'http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/.well-known/openid-configuration'
-            type: openIdConnect
-            description: openid
-        oauth:
-            flows:
-                authorizationCode:
-                    authorizationUrl: >-
-                        'http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/protocol/openid-connect/auth'
-                    tokenUrl: >-
-                        'http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/protocol/openid-connect/token'
-                    scopes:
-                        openid: openid
-            type: oauth2
-            description: oauth
-security:
-    -
-        oauth:
-            - openid
