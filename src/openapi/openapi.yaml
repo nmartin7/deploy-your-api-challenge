@@ -29,7 +29,7 @@ paths:
                     description: Test description 3
           description: ""
       security:
-      - openid:
+      - openId:
         - openid
       operationId: listItems
     put:
@@ -130,10 +130,10 @@ components:
         name: Test
         description: Test description
   securitySchemes:
-    openid:
+    openId:
       openIdConnectUrl: http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user5/.well-known/openid-configuration
       type: openIdConnect
       description: openid connect for 3scale
 security:
-    - openid:
+    - openId:
       - openid
