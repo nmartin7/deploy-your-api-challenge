@@ -29,7 +29,8 @@ paths:
                     description: Test description 3
           description: ""
       security:
-      - openid: []
+      - openid:
+        - openid
       operationId: listItems
     put:
       requestBody:
