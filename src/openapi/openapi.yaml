@@ -127,16 +127,10 @@ components:
         name: Test
         description: Test description
   securitySchemes:
-    api-key:
-      type: apiKey
-      description: api key for 3scale
-      name: api-key
-      in: header
     openid:
       openIdConnectUrl: http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user5/.well-known/openid-configuration
       type: openIdConnect
       description: openid connect for 3scale
 security:
-    - api-key: []
     - openid:
       - openid
