@@ -30,7 +30,7 @@ paths:
           description: ""
       security:
       - openId:
-        - openid
+        - microprofile-jwt
       operationId: listItems
     put:
       requestBody:
@@ -136,4 +136,4 @@ components:
       description: openid connect for 3scale
 security:
     - openId:
-      - openid
+      - microprofile-jwt
