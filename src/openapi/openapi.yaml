@@ -130,7 +130,7 @@ components:
     api-key:
       type: apiKey
       description: api key for 3scale
-      name: app-key
+      name: api-key
       in: header
 security:
     -
