@@ -144,8 +144,5 @@ components:
             type: oauth2
             description: oauth
 security:
-    -
-        openId: []
-    -
-        oauth:
-            - openid   
+    - openId: 
+      - admin
