@@ -23,7 +23,7 @@ node() {
                        destination: params.INSTANCE,
                        insecure: "yes",
                        image: "quay.io/redhat/3scale-toolbox:v0.17.1",
-                       insecure: params.DISABLE_TLS_VALIDATION == "yes",
+                       insecure: params.DISABLE_TLS_VALIDATION,
                        secretName: params.SECRET_NAME],
             service: [:],
             applications: [
