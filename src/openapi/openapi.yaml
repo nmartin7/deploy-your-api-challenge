@@ -130,7 +130,6 @@ components:
     openid:
       openIdConnectUrl: http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user5/.well-known/openid-configuration
       type: openIdConnect
-      description: openid connect for 3scale
 security:
     - openid:
-      - openid
+      - admin
