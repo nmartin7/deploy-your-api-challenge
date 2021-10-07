@@ -1,143 +1,143 @@
----
 openapi: 3.0.2
 info:
-  title: challenge5-app
-  version: 1.0.0
-  description: Challenge 5 app description
+    title: challenge5-app
+    version: 1.0.0
+    description: Challenge 5 app description
 paths:
-  /items:
-    get:
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/item'
-              examples:
-                items:
-                  value:
-                  - id: 1
-                    name: Test
-                    description: Test description
-                  - id: 2
-                    name: Test 2
-                    description: Test description 2
-                  - id: 3
-                    name: Test 3
-                    description: Test description 3
-          description: ""
-      operationId: listItems
-    put:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/item'
-            examples:
-              updated:
-                value:
-                  id: 1
-                  name: Test
-                  description: Test description
-        required: true
-      responses:
-        "200":
-          description: ""
-      operationId: updateItem
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/item'
-            examples:
-              postItem:
-                value:
-                  id: 1
-                  name: Test
-                  description: Test description
-        required: true
-      responses:
-        "201":
-          description: ""
-      operationId: postItem
-  /items/{id}:
-    get:
-      parameters:
-      - name: id
-        schema:
-          format: int32
-          type: integer
-        in: path
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/item'
-              examples:
-                item:
-                  value:
-                    id: 1
-                    name: Test
-                    description: Test description
-          description: ""
-      operationId: getItem
-    delete:
-      parameters:
-      - name: id
-        schema:
-          format: int32
-          type: integer
-        in: path
-        required: true
-      responses:
-        "204":
-          description: ""
-      operationId: deleteItem
-    parameters:
-    - name: id
-      schema:
-        format: int32
-        type: integer
-      in: path
-      required: true
+    /items:
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/item'
+                            examples:
+                                items:
+                                    value:
+                                        -
+                                            id: 1
+                                            name: Test
+                                            description: Test description
+                                        -
+                                            id: 2
+                                            name: Test 2
+                                            description: Test description 2
+                                        -
+                                            id: 3
+                                            name: Test 3
+                                            description: Test description 3
+                    description: ''
+            operationId: listItems
+        put:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/item'
+                        examples:
+                            updated:
+                                value:
+                                    id: 1
+                                    name: Test
+                                    description: Test description
+                required: true
+            responses:
+                '200':
+                    description: ''
+            operationId: updateItem
+        post:
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/item'
+                        examples:
+                            postItem:
+                                value:
+                                    id: 1
+                                    name: Test
+                                    description: Test description
+                required: true
+            responses:
+                '201':
+                    description: ''
+            operationId: postItem
+    '/items/{id}':
+        get:
+            parameters:
+                -
+                    name: id
+                    schema:
+                        format: int32
+                        type: integer
+                    in: path
+                    required: true
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/item'
+                            examples:
+                                item:
+                                    value:
+                                        id: 1
+                                        name: Test
+                                        description: Test description
+                    description: ''
+            operationId: getItem
+        delete:
+            parameters:
+                -
+                    name: id
+                    schema:
+                        format: int32
+                        type: integer
+                    in: path
+                    required: true
+            responses:
+                '204':
+                    description: ''
+            operationId: deleteItem
+        parameters:
+            -
+                name: id
+                schema:
+                    format: int32
+                    type: integer
+                in: path
+                required: true
 components:
-  schemas:
-    item:
-      title: Root Type for Items
-      description: ""
-      required:
-      - id
-      - name
-      type: object
-      properties:
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-      example:
-        id: 1
-        name: Test
-        description: Test description
+    schemas:
+        item:
+            title: Root Type for Items
+            description: ''
+            required:
+                - id
+                - name
+            type: object
+            properties:
+                id:
+                    format: int32
+                    type: integer
+                name:
+                    type: string
+                description:
+                    type: string
+            example:
+                id: 1
+                name: Test
+                description: Test description
     securitySchemes:
-        oauth:
-            flows:
-                authorizationCode:
-                    authorizationUrl: >-
-                        http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/protocol/openid-connect/auth
-                    tokenUrl: >-
-                        http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/protocol/openid-connect/token
-                    scopes:
-                        openid: openid
-            type: oauth2
-            description: oauth
+        openId:
+            openIdConnectUrl: >-
+                http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/.well-known/openid-configuration
+            type: openIdConnect
+            description: openid
 security:
-    - oauth: 
-      - admin
+    -
+        openId:
+            - admin
