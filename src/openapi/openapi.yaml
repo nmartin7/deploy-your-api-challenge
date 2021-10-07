@@ -146,4 +146,4 @@ components:
 security:
     -
         oauth:
-            - admin
+            - openid
