@@ -1,6 +1,9 @@
 #!groovy
 
-library identifier: '3scale-toolbox-jenkins@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: '', remote: 'https://github.com/rh-integration/3scale-toolbox-jenkins.git', traits: [gitBranchDiscovery()]])
+library identifier: '3scale-toolbox-jenkins@master',
+    retriever: modernSCM([$class: 'GitSCMSource',
+                          remote: 'https://github.com/rh-integration/3scale-toolbox-jenkins.git',
+                          traits: [[$class: 'jenkins.plugins.git.traits.BranchDiscoveryTrait']]])
 
 def service = null
 
@@ -13,11 +16,14 @@ node() {
         service = toolbox.prepareThreescaleService(
             openapi: [filename: params.PARAMS_OPENAPI_SPEC],
             environment: [ baseSystemName: params.APP_NAME,
+                           publicBasePath: "/",
+                           oidcIssuerEndpoint: params.OIDC_ISSUER_ENDPOINT,
     					   privateBaseUrl: params.PRIVATE_URL],
             toolbox: [ openshiftProject: params.OCP_PROJECT,
                        destination: params.INSTANCE,
                        insecure: "yes",
                        image: "quay.io/redhat/3scale-toolbox:v0.17.1",
+                       insecure: params.DISABLE_TLS_VALIDATION == "yes",
                        secretName: params.SECRET_NAME],
             service: [:],
             applications: [
