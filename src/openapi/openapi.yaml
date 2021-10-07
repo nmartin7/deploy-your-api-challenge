@@ -128,7 +128,7 @@ components:
         description: Test description
   securitySchemes:
     openid:
-      openIdConnectUrl: http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user5/.well-known/openid-configuration
+      openIdConnectUrl: http://sso-rh-sso.apps.cluster-8fhm9.8fhm9.sandbox1428.opentlc.com/auth/realms/user6/.well-known/openid-configuration
       type: openIdConnect
 security:
     - openid:
